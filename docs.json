@@ -1,13 +1,14 @@
 {
   "$schema": "https://mintlify.com/docs.json",
   "theme": "mint",
-  "name": "Mint Starter Kit",
+  "name": "EPayClub",
+  "description": "EPayClub is a payment platform that allows users to send and receive money easily and securely.",
   "colors": {
-    "primary": "#16A34A",
-    "light": "#07C983",
-    "dark": "#15803D"
+    "primary": "#3A506B",
+    "light": "#6FFFE9",
+    "dark": "#3A506B"
   },
-  "favicon": "/favicon.svg",
+  "favicon": "/epay-favicon.png",
   "navigation": {
     "tabs": [
       {
@@ -17,19 +18,38 @@
             "group": "Get Started",
             "pages": [
               "introduction",
-              "quickstart",
-              "development"
+              "getting-started"
             ]
           },
           {
-            "group": "Essentials",
+            "group": "Use Cases",
             "pages": [
-              "essentials/markdown",
-              "essentials/code",
-              "essentials/images",
-              "essentials/settings",
-              "essentials/navigation",
-              "essentials/reusable-snippets"
+              "use-cases/retail",
+              "use-cases/fintech",
+              "use-cases/travel"
+            ]
+          },
+          {
+            "group": "API Basics",
+            "pages": [
+              "api-basics/authorization",
+              "api-basics/encryption",
+              "api-basics/webhooks",
+              "api-basics/testing"
+            ]
+          },
+          {
+            "group": "Orders",
+            "pages": [
+              "orders/create-orders",
+              "orders/query-fees",
+              "orders/verify-orders"
+            ]
+          },
+          {
+            "group": "Payments",
+            "pages": [
+              "payments/cards"
             ]
           }
         ]
@@ -40,16 +60,15 @@
           {
             "group": "API Documentation",
             "pages": [
-              "api-reference/introduction"
+              "api-reference/introduction",
+              "api-reference/headers",
+              "api-reference/errors"
             ]
           },
           {
-            "group": "Endpoint Examples",
+            "group": "Orders",
             "pages": [
-              "api-reference/endpoint/get",
-              "api-reference/endpoint/create",
-              "api-reference/endpoint/delete",
-              "api-reference/endpoint/webhook"
+              "api-reference/orders/create"
             ]
           }
         ]
@@ -58,26 +77,22 @@
     "global": {
       "anchors": [
         {
-          "anchor": "Documentation",
+          "anchor": "Support",
           "href": "https://mintlify.com/docs",
-          "icon": "book-open-cover"
-        },
-        {
-          "anchor": "Community",
-          "href": "https://mintlify.com/community",
-          "icon": "slack"
-        },
-        {
-          "anchor": "Blog",
-          "href": "https://mintlify.com/blog",
-          "icon": "newspaper"
+          "icon": "headset"
         }
       ]
     }
   },
   "logo": {
-    "light": "/logo/light.svg",
-    "dark": "/logo/dark.svg"
+    "light": "/logo/logo.png",
+    "dark": "/logo/logo-dark.png"
+  },
+  "background": {
+    "color": {
+      "light": "#ffffff",
+      "dark": "#0B132B"
+    }
   },
   "navbar": {
     "links": [
@@ -89,14 +104,16 @@
     "primary": {
       "type": "button",
       "label": "Dashboard",
-      "href": "https://dashboard.mintlify.com"
+      "href": "https://google.com"
     }
   },
-  "footer": {
-    "socials": {
-      "x": "https://x.com/mintlify",
-      "github": "https://github.com/mintlify",
-      "linkedin": "https://linkedin.com/company/mintlify"
+  "api": {
+    "mdx": {
+      "server": "https://checkout-api-service.devepayclub.com/",
+      "auth": {
+        "method": "key",
+        "name": "api-key"
+      }
     }
   }
 }
