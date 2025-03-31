@@ -68,7 +68,18 @@
           {
             "group": "Orders",
             "pages": [
-              "api-reference/orders/create"
+              "api-reference/orders/create",
+              "api-reference/orders/fee",
+              "api-reference/orders/pay",
+              "api-reference/orders/order-status",
+              "api-reference/orders/verify-order",
+              "api-reference/orders/timeline"
+            ]
+          },
+          {
+            "group": "Payment Operations",
+            "pages": [
+              "api-reference/payment-operations/bank-codes"
             ]
           }
         ]
