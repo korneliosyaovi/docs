@@ -17,16 +17,7 @@
           {
             "group": "Get Started",
             "pages": [
-              "introduction",
-              "getting-started"
-            ]
-          },
-          {
-            "group": "Use Cases",
-            "pages": [
-              "use-cases/retail",
-              "use-cases/fintech",
-              "use-cases/travel"
+              "introduction"
             ]
           },
           {
