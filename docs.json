@@ -62,7 +62,8 @@
             "pages": [
               "api-reference/introduction",
               "api-reference/headers",
-              "api-reference/errors"
+              "api-reference/errors",
+              "api-reference/api-glossary"
             ]
           },
           {
@@ -89,7 +90,7 @@
       "anchors": [
         {
           "anchor": "Support",
-          "href": "https://mintlify.com/docs",
+          "href": "mailto:support@epayclub.com",
           "icon": "headset"
         }
       ]
@@ -109,7 +110,7 @@
     "links": [
       {
         "label": "Support",
-        "href": "mailto:hi@mintlify.com"
+        "href": "mailto:support@epayclub.com"
       }
     ],
     "primary": {

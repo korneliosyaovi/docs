@@ -4,12 +4,8 @@ api: 'POST /checkout/order/verify'
 description: 'Retrieve the customer order details.'
 ---
 
-<Warning>
-This endpoint accepts only encrypted requests. Learn more about our encryption [here](#).
-</Warning>
-
-<ParamField body="data" type="string" placeholder="enter encrypted value" required>
-  The encrypted data for this request. See the unencrypted requests [here](#).
+<ParamField body="reference" type="string" required>
+  A unique identifier to track the payment.
 </ParamField>
 
 <ResponseExample>
