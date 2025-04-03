@@ -17,11 +17,16 @@ Several steps occur between entering your card details online and seeing the cha
 2. Authorization model (Auth Models): Defines how a customer approves a card payment.
 
 <Info>
-We'll proceed assuming you've already set up a customer order. If you need to create one, you'll find the steps [here]().
+We'll proceed assuming you've already set up a customer order. If you need to create one, you'll find the steps [here](/orders/create-orders).
 </Info>
 
 ## Single Card Payments
-Add intro here!
+In this section, we'll cover the basics of making one-time card payments. This is great for checkout experiences and other one-time payment use cases. After creating the order, you need to follow these steps to complete the card payment.
+
+1. [Collect](#collecting-the-customer’s-card-information) the customer's card information.
+2. [Encrypt](/api-basics/encryption) sensitive data within your request.
+3. Guide the customer through the payment authorization process using the required method.
+4. Confirm the payment and inform the customer of its outcome.
 
 ### Collecting the Customer's Card Information
 Present the customer with a secure form to gather their card details. These details are crucial for initiating the transaction and consist of:
