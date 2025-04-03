@@ -30,20 +30,118 @@ Not all transactions require you to listen for webhooks, just asynchronous payme
 ## Webhook Structure
 When you receive a webhook, each event is a JSON object with:
 
-1. Webhook component 1: explanation
-2. Webhooks component 2: explanation
-3. Webhook component 3: explanation
+1. `response.data` : This object contains the actual transaction and order information.
+2. `response.data.customer` : This object returns customer-related information to confirm who completed the payment.
+3. `response.data.orderPayments` : This returns the order status and other important order-related information.
 
-```json Webhook Example
-ADD_WEBHOOK_EXAMPLE
+```json Webhook Example [expandable]
+{
+   "data":{
+      "orderReference":"805551685",
+      "paymentReference":"EPCLB-3134A6BDF47211EF93AB06BA2661E92B",
+      "productName":"Collection",
+      "totalAmountCharged":106.0000,
+      "statusId":4,
+      "status":"Failed",
+      "paymentMethod":"Card Payment",
+      "paymentResponseCode":"12",
+      "paymentResponseMessage":"Transaction failed: Card transaction blocked due to change in the credit card details from the registered one",
+      "narration":"Pay",
+      "remarks":"Order initiated and created successfully",
+      "currencyId":6,
+      "paymentLinkId":null,
+      "paymentLinkReference":null,
+      "recurringPaymentId":null,
+      "recurringPaymentReference":null,
+      "currencyName":"USD",
+      "fee":6.0000,
+      "feeRate":6.0000,
+      "subsidiaryFee":0.0000,
+      "customerFee":6.0000,
+      "dateCreated":"2025-02-26T18:47:56",
+      "dateUpdated":"2025-02-26T19:05:35.717496",
+      "datePaymentConfirmed":null,
+      "orderPayments":[
+         {
+            "orderId":29,
+            "orderPaymentReference":"PGW-PAYREF-3B315861F627474FA83852DBDD6CE71A",
+            "paymentOptionId":2,
+            "paymentOption":"Card Payment",
+            "statusId":4,
+            "status":"Failed",
+            "responseCode":"12",
+            "responseMessage":"Transaction failed: Card transaction blocked due to change in the credit card details from the registered one",
+            "orderPaymentInstrument":null,
+            "remarks":"Order payment initiated",
+            "dateCreated":"2025-02-26T19:05:21.723112",
+            "dateUpdated":"2025-02-26T19:05:35.717595"
+         }
+      ],
+      "customer":{
+         "customerId":null,
+         "firstName":null,
+         "lastName":null,
+         "emailAddress":null,
+         "countryShortName":null,
+         "customerGroup":null,
+         "countryId":0,
+         "globalStatusId":0,
+         "globalStatus":null,
+         "mobileNumber":null,
+         "isBlacklisted":false,
+         "reasonBlacklisted":null,
+         "dateCreated":"0001-01-01T00:00:00",
+         "dateUpdated":null
+      },
+      "cardDetails":[
+         {
+            "orderPaymentId":19,
+            "status":true,
+            "country":null,
+            "cardToken":null,
+            "cardExpiryMonth":null,
+            "cardExpiryYear":null,
+            "cardType":null,
+            "cardIssuer":null,
+            "cardFirstSixDigits":null,
+            "cardLastFourDigits":null,
+            "dateCreated":"2025-02-26T19:05:35.729312",
+            "appEnvironmentId":1
+         }
+      ],
+      "paymentLink":null
+   },
+   "status":"success",
+   "statusCode":"00",
+   "message":"Order details fetched successfully"
+}
 ```
 
 ## Best Practices
 1. Acknowledge webhook receipt promptly to prevent timeouts, return a 200 HTTP status code immediately, and offload long-running tasks.
 <CodeGroup>
 
-```javascript Node.js
-ADD_JAVASCRIPT_EXAMPLE
+```javascript Express.js
+const express = require('express');
+
+const app = express();
+app.use(express.json());
+
+async function processWebhook(payload) {
+    // Long running task
+    console.log(`Processing payload:`, payload);
+}
+
+app.post('/webhook', (req, res) => {
+    const payload = req.body;
+    setTimeout(() => processWebhookAsync(payload), 0); // Simulating async execution
+    res.json({ status: "OK" });
+});
+
+const PORT = 3000;
+app.listen(PORT, () => {
+    console.log(`Server is running on port ${PORT}`);
+});
 ```
 
 ```python Python
@@ -87,7 +185,24 @@ async function processWebhook(payload) {
 ```
 
 ```python Python
-ADD_PYTHON_EXAMPLE
+def process_webhook_async(payload):
+    existing_event = await db["events"].find_one({"id": payload["id"]})
+    if existing_event:
+        print("Duplicate event")
+        return
+
+    # Validate data with your API.
+    validated_data = await validate_with_api(payload)
+
+    if validated_data:
+        await db["events"].insert_one(payload)
+        # Perform action.
+
+@app.route('/webhook', methods=['POST'])
+def webhook():
+    payload = request.get_json()
+    asyncio.create_task(process_webhook_async(payload))
+    return jsonify({"status": "OK"})
 ```
 
 </CodeGroup>

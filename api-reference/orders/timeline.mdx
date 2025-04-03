@@ -15,11 +15,20 @@ This endpoint accepts only encrypted requests. Learn more about our encryption [
 <ResponseExample>
 
 ```json 200
-ADD_RESPONSE_SAMPLE_HERE
+{
+  "data": null,
+  "status": "success",
+  "statusCode": "00",
+  "message": "Event logged successfully"
+}
 ```
 
 ```json 400
-ADD_RESPONSE_SAMPLE_HERE
+{
+  "status": "failed",
+  "statusCode": "VAL400",
+  "message": "The OrderReference field is required."
+}
 ```
 
 </ResponseExample>
