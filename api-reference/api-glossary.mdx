@@ -55,13 +55,25 @@ This document details the pre-encryption parameters for all endpoints.
     <ResponseField name="RedirectUrl" type="string">
       Specify the redirection URL for users after payment processing.
     </ResponseField>
+
+    <ResponseField name="paymentlinkid" type="number">
+      The Payment link’s ID.
+    </ResponseField>
+
+    <ResponseField name="frequencyId" type="number">
+      Specify the ID for the charge frequency e.g. daily, monthly. Learn more about payment frequencies [here](#).
+    </ResponseField>
+
+    <ResponseField name="numberOfPayment" type="number">
+     The total number of times this payment should be made.
+    </ResponseField>
   </Expandable>
 </ResponseField>
 
-<ResponseField name="paymentlinkdetail" type="PaymentLink Object">
+<ResponseField name="paymentMeta" type="Meta Object">
   <Expandable title="properties">
-    <ResponseField name="paymentlinkid" type="number">
-      Add parameter definition.
+    <ResponseField name="ipAddress" type="string">
+      The Customer's IP Address.
     </ResponseField>
   </Expandable>
 </ResponseField>

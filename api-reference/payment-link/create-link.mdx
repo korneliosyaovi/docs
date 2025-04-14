@@ -1,0 +1,96 @@
+---
+title: 'Create Payment Links'
+api: 'POST /checkout/links/create'
+description: 'Create a payment link for your customer.'
+---
+
+<Tip>
+This endpoint **doesn't require** encryption.
+</Tip>
+
+<ParamField body="Name" type="string" required>
+  The name displayed on the payment form.
+</ParamField>
+
+<ParamField body="Description" type="string" required>
+  Additional information about the payment form.
+</ParamField>
+
+<ParamField body="PaymentType" type="string" required>
+  Specify the payment type as either`SC`, `MC` and `SUB`. Learn more about supported payments for payment links [here](/api-reference/payment-link/fetch-link-type).
+</ParamField>
+
+<ParamField body="Amount" type="string">
+  The transaction amount. Leave empty to allow the customer enter the amount value on the payment form.
+</ParamField>
+
+<ParamField body="Mobile" type="string">
+  The customer's mobile number.
+</ParamField>
+
+<ParamField body="BackgroundImage" type="string">
+  Specify the URL for the background image.
+</ParamField>
+
+<ParamField body="Website" type="string">
+  Specify the redirect URL for completed payments.
+</ParamField>
+
+<ParamField body="Currency" type="string" default="NGN" required>
+  The transaction currency. This defaukts to NGN.
+</ParamField>
+
+<ParamField body="AuthOption" type="string">
+  Add definition here.
+</ParamField>
+
+<ParamField body="Limit" type="string">
+  Add definition here.
+</ParamField>
+
+<ResponseExample>
+```json 200
+{
+    "data": {
+        "paymentLink": {
+            "id": 71,
+            "name": "PaymentService",
+            "paymentType": null,
+            "logo": "https://merchant-api-service.linkqpay.com/subsidiary/dashboard/file/dev-linkqpay-compliance-bk/download?fileId=",
+            "authOption": "AUTH",
+            "amount": 1000,
+            "dateCreated": "2024-12-23T21:37:34.614881",
+            "reference": "5oiCohs_v0zrhO$G12",
+            "createdBy": null,
+            "creatorEmail": null,
+            "isActive": true,
+            "currency": "USD",
+            "limit": 100,
+            "paymentLinkUrl": "https://payment-link.linkqpay.com/5oiCohs_v0zrhO$G12",
+            "appEnvironmentId": 1,
+            "paymentLinkType": "Multiple Charge",
+            "paymentLinkCode": "MC",
+            "description": "A description of the payment service"
+        },
+        "subsidiary": {
+            "id": 1,
+            "name": "LinqPayment",
+            "country": "NG",
+            "supportEmail": "leo@techdev.work",
+            "customization": null
+        }
+    },
+    "status": "success",
+    "statusCode": "00",
+    "message": "Payment details fetched successfully"
+}
+```
+
+```json 400
+{
+    "status": "failed",
+    "statusCode": "VAL400",
+    "message": "The Name field is required."
+}
+```
+</ResponseExample>
