@@ -1,0 +1,27 @@
+---
+title: 'Cancel Recurring Payment'
+api: 'PATCH /checkout/links/recurringpayment/{id}/cancel'
+description: 'Cancel a Subscription Payment.'
+---
+
+<Warning>
+Use this endpoint carefully. Ending a subscription through this action is permanent; you won't be able to reactivate it.
+</Warning>
+
+<ParamField path="id" type="string" required>
+  The Payment link’s ID.
+</ParamField>
+
+<ResponseExample>
+```json 200
+ADD_SAMPLE_HERE
+```
+
+```json 400
+{
+    "status": "failed",
+    "statusCode": "404",
+    "message": "Sorry! Recurring payment not found"
+}
+```
+</ResponseExample>
