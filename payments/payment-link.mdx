@@ -16,3 +16,32 @@ When a customer opens a payment link, they are presented with a form to enter th
 <img src="/images/checkout.png" />
 
 Customers can use these links to pay once, or they can set up payments that happen regularly. These regular payments can keep going until you stop them, or they can happen regularly for a specific number of times.
+
+## Creating a Payment link
+To start accepting payments using payment links, you first need to create one. You can create links for single charge, multiple charges and subscription payments. Let’s review some use cases for the supported kinds of payment before we discuss how to create the link.
+
+In the case of a single charge, the customer makes a one-time payment. This applies to most checkout payments for retail businesses where the customer checkouts to complete their order. For multiple charges, the customer makes a regular payment for a fixed period of time e.g the customer is making a weekly payment for seven (7) weeks, this payment differs from subscriptions because of the finite number of payments to be made. 
+
+In the case of subscriptions, the customer makes regular payments for an indefinite period until the subscription is cancelled.
+
+### Single Payments
+To create a payment link for a one-time payment, send your request to the create payment link [endpoint](#). This request needs to contain the following:
+
+| Parameter                 | Definition                                                                                            | Example            | Required |
+| :------------------------ | :---------------------------------------------------------------------------------------------------- | :----------------- | :------- |
+| Name                      | The name displayed on the payment form.                                                               | My Demo link       | Yes      |
+| Description               | Additional information about the payment form.                                                        | Sample checkout    | Yes      |
+| PaymentType               | Specify the payment type as either `SC`, `MC` and `SUB`.                                                    | SC                 | Yes      |
+| Amount                    | The transaction amount. Leave empty to allow the customer enter the amount value on the payment form. | 100                | No       |
+| Mobile                    | The customer’s mobile number.                                                                         | +4412345678        | No       |
+| BackgroundImage           | Specify the URL for the background image.                                                             | https://image.com  | No       |
+| Website                   | Specify the redirect URL for completed payments.                                                      | https://example.com| No       |
+| Currency                  | The transaction currency. This defaults to NGN.                                                       | GBP                | No       |
+| AuthOption                | Add definition here.                                                                                  | AUTH               | No       |
+| Limit                     | Add definition here.                                                                                  | 100                | No       |
+
+Once your link is created, you can perform the following actions to manage it:
+1. [Edit your payment link](/api-reference/payment-link/edit-link)
+2. [Deactivate your link](/api-reference/payment-link/deactivate-link)
+3. [Activate your link](/api-reference/payment-link/activate-link)
+4. [Retrieve link information](/api-reference/payment-link/fetch-links)
