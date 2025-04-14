@@ -1,0 +1,101 @@
+---
+title: 'Fetch Payment Links'
+api: 'GET /checkout/links/all'
+description: 'Retrieve your payment links information.'
+---
+
+<ParamField query="id" type="number" required>
+  The Payment link's ID.
+</ParamField>
+
+<ResponseExample>
+```json 200
+[
+    {
+        "id": 1,
+        "name": "Merchant Epayclub default payment link test",
+        "paymentType": "Default",
+        "logo": null,
+        "amount": null,
+        "dateCreated": "2025-02-13T02:36:42.449569",
+        "reference": "mJKmguySpGQI5LAT14j4T12",
+        "createdBy": null,
+        "creatorEmail": null,
+        "isActive": true,
+        "currency": "NGN",
+        "limit": null,
+        "paymentLinkUrl": "https://payment-link.devepayclub.com/mJKmguySpGQI5LAT14j4T12",
+        "appEnvironmentId": 0,
+        "paymentLinkType": null,
+        "paymentLinkCode": null,
+        "description": null
+    },
+    {
+        "id": 108,
+        "name": "John Doe",
+        "paymentType": "Single Charge",
+        "logo": null,
+        "amount": 500.000000,
+        "dateCreated": "2025-04-11T04:00:54.181869",
+        "reference": "NbiV15Lgx5iUrdX7WaiTDiU$GxOpw$hd4RlEud$FrdWKfy6CeRM12",
+        "createdBy": null,
+        "creatorEmail": null,
+        "isActive": true,
+        "currency": "KES",
+        "limit": 1,
+        "paymentLinkUrl": "https://payment-link.devepayclub.com/NbiV15Lgx5iUrdX7WaiTDiU$GxOpw$hd4RlEud$FrdWKfy6CeRM12",
+        "appEnvironmentId": 0,
+        "paymentLinkType": null,
+        "paymentLinkCode": null,
+        "description": "Cake order payment"
+    },
+    {
+        "id": 112,
+        "name": "PaymentService",
+        "paymentType": "Multiple Charge",
+        "logo": null,
+        "amount": 1000.000000,
+        "dateCreated": "2025-04-11T14:52:27.962385",
+        "reference": "B_raC8YxyxC59Xd2YTtgTwepnPdiS2v4K_yXIQHxf94912",
+        "createdBy": null,
+        "creatorEmail": null,
+        "isActive": true,
+        "currency": "USD",
+        "limit": 100,
+        "paymentLinkUrl": "https://payment-link.devepayclub.com/B_raC8YxyxC59Xd2YTtgTwepnPdiS2v4K_yXIQHxf94912",
+        "appEnvironmentId": 0,
+        "paymentLinkType": null,
+        "paymentLinkCode": null,
+        "description": "A description of the payment service"
+    },
+    {
+        "id": 113,
+        "name": "Checkout Test",
+        "paymentType": "Multiple Charge",
+        "logo": null,
+        "amount": 100.000000,
+        "dateCreated": "2025-04-11T23:49:57.695448",
+        "reference": "qfB0CdeJ23PrSsWMSUA3SDegvQact482OuB0YQDMe1HH9x012",
+        "createdBy": null,
+        "creatorEmail": null,
+        "isActive": true,
+        "currency": "USD",
+        "limit": 100,
+        "paymentLinkUrl": "https://payment-link.devepayclub.com/qfB0CdeJ23PrSsWMSUA3SDegvQact482OuB0YQDMe1HH9x012",
+        "appEnvironmentId": 0,
+        "paymentLinkType": null,
+        "paymentLinkCode": null,
+        "description": "A Demo to understand how payment links work."
+    }
+]
+```
+
+```json 400
+{
+  "status": "failed",
+  "status_code": "13",
+  "message": "Order not found at the moment"
+}
+```
+
+</ResponseExample>
