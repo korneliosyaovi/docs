@@ -20,6 +20,14 @@ This endpoint **doesn't require** encryption.
   Specify the payment type as either`SC`, `MC` and `SUB`. Learn more about supported payments for payment links [here](/api-reference/payment-link/fetch-link-type).
 </ParamField>
 
+<ParamField body="Currency" type="string" default="NGN" required>
+  The transaction currency. This defaults to NGN.
+</ParamField>
+
+<ParamField body="AuthOption" type="string" required>
+  Authentication method, specify `AUTH` for 3DS and `NOAUTH` for NoAuth payments.
+</ParamField>
+
 <ParamField body="Amount" type="string">
   The transaction amount. Leave empty to allow the customer enter the amount value on the payment form.
 </ParamField>
@@ -36,13 +44,6 @@ This endpoint **doesn't require** encryption.
   Specify the redirect URL for completed payments.
 </ParamField>
 
-<ParamField body="Currency" type="string" default="NGN" required>
-  The transaction currency. This defaults to NGN.
-</ParamField>
-
-<ParamField body="AuthOption" type="string">
-  Add definition here.
-</ParamField>
 
 <ParamField body="Limit" type="string">
   Add definition here.
@@ -51,38 +52,37 @@ This endpoint **doesn't require** encryption.
 <ResponseExample>
 ```json 200
 {
-    "data": {
-        "paymentLink": {
-            "id": 71,
-            "name": "PaymentService",
-            "paymentType": null,
-            "logo": "https://merchant-api-service.linkqpay.com/subsidiary/dashboard/file/dev-linkqpay-compliance-bk/download?fileId=",
-            "authOption": "AUTH",
-            "amount": 1000,
-            "dateCreated": "2024-12-23T21:37:34.614881",
-            "reference": "5oiCohs_v0zrhO$G12",
-            "createdBy": null,
-            "creatorEmail": null,
-            "isActive": true,
-            "currency": "USD",
-            "limit": 100,
-            "paymentLinkUrl": "https://payment-link.linkqpay.com/5oiCohs_v0zrhO$G12",
-            "appEnvironmentId": 1,
-            "paymentLinkType": "Multiple Charge",
-            "paymentLinkCode": "MC",
-            "description": "A description of the payment service"
-        },
-        "subsidiary": {
-            "id": 1,
-            "name": "LinqPayment",
-            "country": "NG",
-            "supportEmail": "leo@techdev.work",
-            "customization": null
-        }
+  "data": {
+    "paymentLink": {
+      "id": 133,
+      "name": "Checkout TestAB",
+      "paymentType": null,
+      "logo": "https://merchant-api-service.devepayclub.com/subsidiary/dashboard/file/epayclub-compliance-images/download?fileId=",
+      "amount": null,
+      "dateCreated": "2025-04-15T00:16:33.984405",
+      "reference": "vxwHip7xXm4xtPUtg0ZzDv$0noEby6MIPxG74O9nm4v3b1tby9mnErxfSOY_AZ0412",
+      "createdBy": null,
+      "creatorEmail": null,
+      "isActive": true,
+      "currency": "USD",
+      "limit": 1,
+      "paymentLinkUrl": "https://payment-link.devepayclub.com/vxwHip7xXm4xtPUtg0ZzDv$0noEby6MIPxG74O9nm4v3b1tby9mnErxfSOY_AZ0412",
+      "appEnvironmentId": 1,
+      "paymentLinkType": "Single Charge",
+      "paymentLinkCode": "SC",
+      "description": "A Demo to understand how payment links work."
     },
-    "status": "success",
-    "statusCode": "00",
-    "message": "Payment details fetched successfully"
+    "subsidiary": {
+      "id": 1,
+      "name": "Merchant Epayclub",
+      "country": "NG",
+      "supportEmail": "merchant@epayclub.com",
+      "customization": null
+    }
+  },
+  "status": "success",
+  "statusCode": "00",
+  "message": "Payment details fetched successfully"
 }
 ```
 

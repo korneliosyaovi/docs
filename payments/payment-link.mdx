@@ -8,7 +8,7 @@ Customers today want payments to be quick, easy, and safe. If it's not, you migh
 
 Payment checkouts let you design your own smooth and branded payment experience right in your app or website. Payment links, on the other hand, are a fast way to get customer info and start payments. They are easy to make, simple to share, and can be used in many places: on your website, on your social media page, or even in an invoice or email.
 
-This part will show you how to use both of these tools. You'll learn how to start collecting payments faster and in a smarter way – with less work and better results.
+This part will show you how to use payment links. You'll learn how to start collecting payments faster and in a smarter way – with less work and better results.
 
 ## Understanding Payment Links
 When a customer opens a payment link, they are presented with a form to enter their personal information like their name, email address and the amount, currency. Their input is validated, and they are redirected to the checkout interface.
@@ -37,7 +37,7 @@ To create a payment link for a one-time payment, send your request to the create
 | BackgroundImage           | Specify the URL for the background image.                                                             | https://image.com  | No       |
 | Website                   | Specify the redirect URL for completed payments.                                                      | https://example.com| No       |
 | Currency                  | The transaction currency. This defaults to NGN.                                                       | GBP                | No       |
-| AuthOption                | Add definition here.                                                                                  | AUTH               | No       |
+| AuthOption                | Authentication method, specify `AUTH` for 3DS and `NOAUTH` for NoAuth payments.                       | `AUTH`             | No       |
 | Limit                     | Add definition here.                                                                                  | 100                | No       |
 
 Once your link is created, you can perform the following actions to manage it:
