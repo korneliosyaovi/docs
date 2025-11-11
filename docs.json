@@ -2,7 +2,7 @@
   "$schema": "https://mintlify.com/docs.json",
   "theme": "mint",
   "name": "EPayClub",
-  "description": "EPayClub is a payment platform that allows users to send and receive money easily and securely.",
+  "description": "Securely send and receive money using EPayClub.",
   "colors": {
     "primary": "#3A506B",
     "light": "#6FFFE9",
@@ -121,7 +121,7 @@
     "primary": {
       "type": "button",
       "label": "Dashboard",
-      "href": "https://google.com"
+      "href": "https://merchant.epayclub.com/auth/signin"
     }
   },
   "api": {
