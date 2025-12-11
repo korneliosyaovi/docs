@@ -2,7 +2,7 @@
   "$schema": "https://mintlify.com/docs.json",
   "theme": "mint",
   "name": "EPayClub",
-  "description": "Securely send and receive money using EPayClub.",
+  "description": "Securely send & receive money using EPayClub.",
   "colors": {
     "primary": "#3A506B",
     "light": "#6FFFE9",
