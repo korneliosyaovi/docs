@@ -126,7 +126,7 @@
   },
   "api": {
     "mdx": {
-      "server": "https://checkout-api-service.epayclub.com/checkout",
+      "server": "https://checkout-api-service.epayclub.com",
       "auth": {
         "method": "key",
         "name": "api-key"
