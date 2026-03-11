@@ -41,6 +41,7 @@
             "group": "Payments",
             "pages": [
               "payments/cards",
+              "payments/paypal",
               "payments/payment-link"
             ]
           }
