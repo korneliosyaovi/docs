@@ -150,6 +150,57 @@ This document details the pre-encryption parameters for all endpoints.
 </ResponseField>
 
 
+### PayPal
+<ResponseField name="reference" type="string" required>
+    A unique identifier to track the payment.
+</ResponseField>
+
+<ResponseField name="paymentmethod" type="string" required>
+    Expected payment method for the payment. Specify `PAYPAL` for Paypal payments.
+</ResponseField>
+
+<ResponseField name="card" type="Card Object" required>
+  <Expandable title="properties">
+    <ResponseField name="billingaddress" type="Address Object" required>
+        <Expandable title="properties">
+            <ResponseField name="customerName" type="string" required>
+                The Customer's full name.
+            </ResponseField>
+
+            <ResponseField name="PhoneNumber" type="string" required>
+                The Customer's mobile number including the country code.
+            </ResponseField>
+
+            <ResponseField name="HouseNumber" type="string" required>
+                The unique digit or alphanumeric code assigned to your specific home or building on a street.
+            </ResponseField>
+
+            <ResponseField name="street" type="string" required>
+                The primary line of your billing address, including house number and street name.
+            </ResponseField>
+
+            <ResponseField name="city" type="string" required>
+                The name of the town or city where the billing address is situated.
+            </ResponseField>
+
+            <ResponseField name="state" type="string" required>
+                The billing address' state.
+            </ResponseField>
+
+            <ResponseField name="country" type="string" required>
+                The billing address' country.
+            </ResponseField>
+
+            <ResponseField name="zipCode" type="string" required>
+                The postal code associated with the billing address.
+            </ResponseField>
+        </Expandable>
+
+    </ResponseField>
+  </Expandable>
+</ResponseField>
+
+
 
 ## Query Order Status
 <ResponseField name="reference" type="string" required>
